@@ -1,6 +1,6 @@
 from matplotlib.pyplot import copper
 import numpy as np
-
+from serial_driver import BetterSerial
 
 class Robot():
     """
@@ -16,9 +16,16 @@ class Robot():
         """
         self.position = np.array([x, y, t])
         self.shape = [] # Création d'une forme vide pour le robot. A définir avec une méthode
+        self.serial = BetterSerial("COM3", 115200)
 
-    def update_position(self, x, y, t):
-        self.position = np.array([x, y, t])
+    def update_position(self):
+        message = self.serial.decode_serial2(",")
+        try:
+            message = np.array(message[0:3], dtype=float)
+        except ValueError:
+            message = np.array([0,0,0])
+        # print(message)
+        self.position = message
 
     def get_transformation_matrix(self):
         """Création des matrices de transformation pour passer d'un capteur au repère du robot
