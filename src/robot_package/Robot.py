@@ -23,6 +23,8 @@ class Robot():
         try:
             message = np.array(message[0:3], dtype=float)
         except ValueError:
+            self.serial.flushInput()
+            self.serial.flushOutput()
             message = np.array([0,0,0])
         # print(message)
         self.position = message
@@ -56,7 +58,7 @@ class Robot():
         Returns:
             np.array (2,n): coordonnées (x, y) de la forme du robot dans le repère de la table
         """
-        robot = self.get_robot_shape()
+        robot = self.shape
         # return la transformation des point du robot dans le repère de la table
         return self.transform_robot2table(robot)
     
