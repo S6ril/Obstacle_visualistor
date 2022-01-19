@@ -19,6 +19,7 @@ Obstacle visualisator permet placer les capteurs sur le robot et de voir en temp
 
 ## Sommaire
 
+  * [Prérequis](#prerequis)
   * [Contexte](#contexte)
   * [Utilisation](#utilisation)
     + [Affichage de la table avec le robot](#affichage-de-la-table-avec-le-robot)
@@ -29,6 +30,19 @@ Obstacle visualisator permet placer les capteurs sur le robot et de voir en temp
   * [Intégration avec des capteurs réels](#int-gration-avec-des-capteurs-r-els)
   * [Auteurs](#auteurs)
 
+
+## Prérequis
+
+L'utilisation de ce projet nécessite les bibliothèques suivantes:
+* numpy
+* matplotlib
+* pyyaml
+* pyserial
+
+Installation sous Windows :
+```
+py -m pip install numpy matplotlib pyyaml pyserial
+```
 
 
 ## Contexte
